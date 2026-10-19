@@ -20,9 +20,9 @@ Open this folder in Android Studio and sync Gradle. The project uses Android Gra
 
 ## First use
 
-1. Install and launch Atlas.
+1. Install and launch AtLas.
 2. Open Settings (gear icon).
-3. Create an API key at https://openrouter.ai/keys and enter it in Atlas.
+3. Create an API key at https://openrouter.ai/keys and enter it in AtLas.
 4. Choose an OpenRouter model ID, for example `openai/gpt-4o-mini` (availability and pricing depend on your OpenRouter account and selected model).
 5. Choose a workspace folder using Android's folder picker and grant access.
 6. Describe a website on the home screen to generate it, or open an HTML file from the workspace and tap **Ask AI to edit this HTML**.
