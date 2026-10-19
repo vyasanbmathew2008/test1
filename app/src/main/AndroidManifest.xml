@@ -2,7 +2,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="false"
-        android:label="Atlas"
+        android:label="AtLas"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="false">
         <activity
