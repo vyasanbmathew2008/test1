@@ -10,7 +10,7 @@ A native Android Java starter for an AI-assisted web-design workspace.
 | Android version code | `1` |
 | Version type | **Base version** |
 | Release status | Initial development baseline |
-| Application ID | `com.atlas.aiwebbuilder` |
+| Application ID | `com.atlas.app` |
 
 **AtLas 1.0 is the base version of the project.** It establishes the initial app structure and core workflow. Future updates should increment the version code and update the version name in `app/build.gradle` when a new app version is created. This README describes the repository baseline; it does not mean a signed APK has been published.
 
