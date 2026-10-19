@@ -2,6 +2,18 @@
 
 A native Android Java starter for an AI-assisted web-design workspace.
 
+## Version information
+
+| Item | Value |
+|---|---|
+| App version | **1.0** |
+| Android version code | `1` |
+| Version type | **Base version** |
+| Release status | Initial development baseline |
+| Application ID | `com.atlas.aiwebbuilder` |
+
+**AtLas 1.0 is the base version of the project.** It establishes the initial app structure and core workflow. Future updates should increment the version code and update the version name in `app/build.gradle` when a new app version is created. This README describes the repository baseline; it does not mean a signed APK has been published.
+
 ## Features
 
 - Native dark-themed UI built in Java.
@@ -13,6 +25,25 @@ A native Android Java starter for an AI-assisted web-design workspace.
 - Save edits to the opened document URI, or save a generated website as `atlas-website.html` in the selected folder.
 - Ask AI to revise an HTML page; existing HTML is sent to OpenRouter only when you explicitly start an AI edit.
 - HTML preview in an Android WebView.
+
+## Versioning
+
+AtLas follows a simple version format:
+
+- **Version name** (for example, `1.0`): the version shown to users.
+- **Version code** (for example, `1`): an integer used by Android to distinguish app builds. Increase it for every new Android release.
+- **Base version**: the initial project baseline. New features and fixes should be documented in the changelog below.
+
+When changing the app version, update `versionName` and increase `versionCode` in `app/build.gradle`.
+
+## Changelog
+
+### 1.0 — Base Version
+
+- Established the initial AtLas Android app baseline.
+- Added the AI-assisted HTML generation and editing workflow using OpenRouter.
+- Added API key settings and encrypted local key storage.
+- Added workspace folder selection, text-file editing, saving, and HTML preview.
 
 ## Build
 
