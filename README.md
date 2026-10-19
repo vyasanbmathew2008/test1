@@ -4,7 +4,7 @@ A native Android Java starter for an AI-assisted web-design workspace.
 
 ## Version information
 
-| Item | Value |
+| Item | Information |
 |---|---|
 | App version | **1.0** |
 | Android version code | `1` |
