@@ -6,13 +6,29 @@ A native Android Java starter for an AI-assisted web-design workspace.
 
 | Item | Information |
 |---|---|
-| App version | **1.0** |
+| App version | **v1.0.0** |
 | Android version code | `1` |
 | Version type | **Development version** |
 | Release status | In development |
 | Application ID | `com.atlas.app` |
 
-**AtLas 1.0 is the current development version.** The app is still in development and this does not indicate that a signed release APK has been published. Update the version name and increment the version code in `app/build.gradle` when preparing a new build.
+**AtLas v1.0.0** is the current development build version. The version number is configured in `app/build.gradle`; this does not by itself mean a signed release APK has been published.
+
+## Release notes — v1.0.0
+
+Initial development release notes:
+
+- Added a native dark-themed Android interface.
+- Added AI-assisted HTML page generation using the OpenRouter Chat Completions API.
+- Added configurable OpenRouter API key and model settings.
+- Added encrypted API-key storage using Android Keystore and AES-GCM.
+- Added workspace folder selection through Android's Storage Access Framework.
+- Added browsing and editing for supported text files, including HTML, CSS, JS, JSON, TXT, and Markdown.
+- Added saving edits to the selected document and saving generated websites as `atlas-website.html`.
+- Added an explicit AI-assisted HTML editing workflow.
+- Added an Android WebView for previewing HTML pages.
+
+**Note:** This is a development build. These notes describe the current project features and do not indicate that a signed APK has been published.
 
 ## Features
 
@@ -30,14 +46,14 @@ A native Android Java starter for an AI-assisted web-design workspace.
 
 AtLas follows a simple version format:
 
-- **Version name** (for example, `1.0`): the version shown to users.
+- **Version name** (for example, `1.0.0`): the version shown to users.
 - **Version code** (for example, `1`): an integer used by Android to distinguish app builds. Increase it for every new Android release.
 
 When changing the app version, update `versionName` and increase `versionCode` in `app/build.gradle`.
 
 ## Changelog
 
-### 1.0 — Development Version
+### v1.0.0 — Initial Development Release
 
 - Established the initial AtLas Android app baseline.
 - Added the AI-assisted HTML generation and editing workflow using OpenRouter.
