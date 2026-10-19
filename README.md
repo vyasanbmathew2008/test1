@@ -42,15 +42,6 @@ Initial development release notes:
 - Ask AI to revise an HTML page; existing HTML is sent to OpenRouter only when you explicitly start an AI edit.
 - HTML preview in an Android WebView.
 
-## Versioning
-
-AtLas follows a simple version format:
-
-- **Version name** (for example, `1.0.0`): the version shown to users.
-- **Version code** (for example, `1`): an integer used by Android to distinguish app builds. Increase it for every new Android release.
-
-When changing the app version, update `versionName` and increase `versionCode` in `app/build.gradle`.
-
 ## Changelog
 
 ### v1.0.0 — Initial Development Release
