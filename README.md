@@ -8,11 +8,11 @@ A native Android Java starter for an AI-assisted web-design workspace.
 |---|---|
 | App version | **1.0** |
 | Android version code | `1` |
-| Version type | **Base version** |
-| Release status | Initial development baseline |
+| Version type | **Development version** |
+| Release status | In development |
 | Application ID | `com.atlas.app` |
 
-**AtLas 1.0 is the base version of the project.** It establishes the initial app structure and core workflow. Future updates should increment the version code and update the version name in `app/build.gradle` when a new app version is created. This README describes the repository baseline; it does not mean a signed APK has been published.
+**AtLas 1.0 is the current development version.** The app is still in development and this does not indicate that a signed release APK has been published. Update the version name and increment the version code in `app/build.gradle` when preparing a new build.
 
 ## Features
 
@@ -32,13 +32,12 @@ AtLas follows a simple version format:
 
 - **Version name** (for example, `1.0`): the version shown to users.
 - **Version code** (for example, `1`): an integer used by Android to distinguish app builds. Increase it for every new Android release.
-- **Base version**: the initial project baseline. New features and fixes should be documented in the changelog below.
 
 When changing the app version, update `versionName` and increase `versionCode` in `app/build.gradle`.
 
 ## Changelog
 
-### 1.0 — Base Version
+### 1.0 — Development Version
 
 - Established the initial AtLas Android app baseline.
 - Added the AI-assisted HTML generation and editing workflow using OpenRouter.
