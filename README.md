@@ -1,4 +1,4 @@
-# Atlas Android
+# AtLas App
 
 A native Android Java starter for an AI-assisted web-design workspace.
 
