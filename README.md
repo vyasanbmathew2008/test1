@@ -49,7 +49,7 @@ source .venv/bin/activate
 **Windows PowerShell**
 ```powershell
 py -m venv .venv
-.venv\Scripts\Activate.ps1
+.venv\\Scripts\\Activate.ps1
 ```
 
 ### 3. Install dependencies
@@ -130,6 +130,7 @@ You must also install the **Tesseract OCR application** separately and make sure
 │   └── app.js                  # Upload, editor, history, and export behavior
 ├── .env.example                # Environment variable template
 ├── .gitignore
+├── LICENSE                     # MIT License
 └── requirements.txt
 ```
 
@@ -169,4 +170,6 @@ Issues and pull requests are welcome. When reporting a problem, include your ope
 
 ## License
 
-No license has been specified yet. Unless a license is added to this repository, the default copyright rules apply.
+This project is licensed under the **MIT License**. You are free to use, copy, modify, distribute, sublicense, and sell copies of the software, subject to the conditions in the license.
+
+See the [LICENSE](LICENSE) file for the full license text.
