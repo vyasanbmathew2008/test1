@@ -1,74 +1,28 @@
-# AtLas App
+# PDF to Podcast Script Generator
 
-A native Android Java starter for an AI-assisted web-design workspace.
-
-## Version information
-
-| Item | Information |
-|---|---|
-| App version | **v1.0.0** |
-| Android version code | `1` |
-| Version type | **Development version** |
-| Release status | In development |
-| Application ID | `com.atlas.app` |
-
-**AtLas v1.0.0** is the current development build version. The version number is configured in `app/build.gradle`; this does not by itself mean a signed release APK has been published.
-
-## Release notes — v1.0.0
-
-Initial development release notes:
-
-- Added a native dark-themed Android interface.
-- Added AI-assisted HTML page generation using the OpenRouter Chat Completions API.
-- Added configurable OpenRouter API key and model settings.
-- Added encrypted API-key storage using Android Keystore and AES-GCM.
-- Added workspace folder selection through Android's Storage Access Framework.
-- Added browsing and editing for supported text files, including HTML, CSS, JS, JSON, TXT, and Markdown.
-- Added saving edits to the selected document and saving generated websites as `atlas-website.html`.
-- Added an explicit AI-assisted HTML editing workflow.
-- Added an Android WebView for previewing HTML pages.
-
-**Note:** This is a development build. These notes describe the current project features and do not indicate that a signed APK has been published.
+A local, browser-based app that turns PDF documents into editable podcast scripts. It generates **text only**—no audio, voice synthesis, or TTS.
 
 ## Features
+- Upload PDF files and extract text with PyMuPDF
+- Optional OCR fallback for scanned PDFs (requires Tesseract installed)
+- Custom format, tone, duration, language, and content-depth instructions
+- OpenRouter-compatible chat completions API
+- Chunking and intermediate summaries for long documents
+- Edit and regenerate the full script; export Markdown or TXT
+- Local SQLite history
 
-- Native dark-themed UI built in Java.
-- Generate a complete HTML page using the OpenRouter Chat Completions API.
-- User-configurable OpenRouter API key and model ID.
-- API key encrypted with AES-GCM using a key held in Android Keystore; encrypted values are stored in private app preferences. Android backup is disabled to avoid restoring ciphertext without its Keystore key.
-- Android Storage Access Framework folder picker (`ACTION_OPEN_DOCUMENT_TREE`) for a folder the user explicitly chooses.
-- Browse selected folder's top-level files and open HTML, CSS, JS, JSON, TXT, and Markdown files for editing.
-- Save edits to the opened document URI, or save a generated website as `atlas-website.html` in the selected folder.
-- Ask AI to revise an HTML page; existing HTML is sent to OpenRouter only when you explicitly start an AI edit.
-- HTML preview in an Android WebView.
+## Run locally
+1. Install Python 3.10+ and (optionally) Tesseract OCR.
+2. Create and activate a virtual environment.
+3. Install dependencies: `pip install -r requirements.txt`
+4. Copy `.env.example` to `.env` and add your OpenRouter API key.
+5. Start: `uvicorn app.main:app --reload`
+6. Open http://127.0.0.1:8000
 
-## Changelog
+The app runs on your computer; no VPS is required. Keep your API key private and never commit `.env`.
 
-### v1.0.0 — Initial Development Release
+## Configuration
+Set `OPENROUTER_API_KEY`, optionally `OPENROUTER_MODEL` (default: `openai/gpt-4o-mini`), and `MAX_UPLOAD_MB` in `.env`. Model availability and pricing are controlled by OpenRouter and the selected provider.
 
-- Established the initial AtLas Android app baseline.
-- Added the AI-assisted HTML generation and editing workflow using OpenRouter.
-- Added API key settings and encrypted local key storage.
-- Added workspace folder selection, text-file editing, saving, and HTML preview.
-
-## Build
-
-Open this folder in Android Studio and sync Gradle. The project uses Android Gradle Plugin 8.7.3, compile SDK 35, Java, and AndroidX DocumentFile 1.0.1. Android Studio must have a compatible JDK and Android SDK installed.
-
-## First use
-
-1. Install and launch AtLas.
-2. Open Settings (gear icon).
-3. Create an API key at https://openrouter.ai/keys and enter it in AtLas.
-4. Choose an OpenRouter model ID, for example `openai/gpt-4o-mini` (availability and pricing depend on your OpenRouter account and selected model).
-5. Choose a workspace folder using Android's folder picker and grant access.
-6. Describe a website on the home screen to generate it, or open an HTML file from the workspace and tap **Ask AI to edit this HTML**.
-
-## Security and privacy notes
-
-- The app does not upload workspace files in the background. Opening a file reads it locally. AI editing sends the current HTML and instruction to OpenRouter when you tap the AI edit action.
-- OpenRouter API requests require internet connectivity and may incur provider/model charges.
-- The API key is encrypted at rest using Android Keystore. No client-side storage method can protect a key from a fully compromised device; users can remove the saved key from Settings.
-- Generated HTML and JavaScript are previewed in a WebView. Only open or preview code you trust. The WebView has file and content access disabled, but generated pages can still run JavaScript and may load network resources.
-- The workspace view lists files and directories at the selected folder's top level. Choose a subfolder separately through the Android folder picker if you want it to be the active workspace.
-- This is a starter app, not a full autonomous agent: it currently edits HTML pages with AI, while other supported text files can be edited manually.
+## Notes
+OCR requires the Tesseract executable to be installed separately. PDF extraction and generation happen locally except for the document text sent to the configured AI provider for script generation. Do not upload confidential documents unless you are comfortable sending their extracted text to that provider.
