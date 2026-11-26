@@ -121,15 +121,15 @@ public class MainActivity extends Activity {
                         runOnUiThread(() -> { progress.setMax(total); progress.setProgress(done); progressText.setText(done + " / " + total); });
                     }
                     @Override public void onPort(int port, boolean open, String service) {
+                        synchronized (currentRows) { currentRows.add(new String[]{String.valueOf(port), service, open ? "OPEN" : "NOT OPEN"}); }
                         if (open) {
-                            synchronized (currentRows) { currentRows.add(new String[]{String.valueOf(port), service, "OPEN"}); }
                             runOnUiThread(() -> { openCount++; addResult("●  " + port + "   " + service + "   OPEN"); countText.setText("Open: " + openCount); });
                         }
                     }
                 });
                 String csv = makeCsv();
                 if (!cancelled) {
-                    history.add(new ScanRecord(host, countCurrentRows(), scanPorts.size(), csv));
+                    history.add(new ScanRecord(host, countOpenRows(), scanPorts.size(), csv));
                     runOnUiThread(() -> { status.setText("Scan complete"); scanButton.setVisibility(View.GONE); if (openCount == 0) addResult("No open ports found in this scan."); });
                 }
             } catch (Exception e) {
