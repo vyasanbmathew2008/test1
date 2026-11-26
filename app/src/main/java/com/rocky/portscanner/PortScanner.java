@@ -86,7 +86,11 @@ final class PortScanner {
                 }
                 boolean open;
                 try { open = futures.get(i).get(); }
-                catch (Exception e) { open = false; }
+                catch (InterruptedException e) {
+                    for (Future<Boolean> future : futures) future.cancel(true);
+                    Thread.currentThread().interrupt();
+                    throw e;
+                } catch (Exception e) { open = false; }
                 int port = ports.get(i);
                 listener.onPort(port, open, serviceName(port));
                 listener.onProgress(++done, ports.size());
