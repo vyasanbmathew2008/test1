@@ -129,7 +129,7 @@ public class MainActivity extends Activity {
                 });
                 String csv = makeCsv();
                 if (!cancelled) {
-                    history.add(new ScanRecord(host, openCount, scanPorts.size(), csv));
+                    history.add(new ScanRecord(host, countCurrentRows(), scanPorts.size(), csv));
                     runOnUiThread(() -> { status.setText("Scan complete"); scanButton.setVisibility(View.GONE); if (openCount == 0) addResult("No open ports found in this scan."); });
                 }
             } catch (Exception e) {
@@ -140,7 +140,7 @@ public class MainActivity extends Activity {
         });
     }
 
-    private String makeCsv() {
+    private int countCurrentRows() { synchronized (currentRows) { return currentRows.size(); } }\n\n    private String makeCsv() {
         StringBuilder b = new StringBuilder("host,port,service,state\n");
         synchronized (currentRows) {
             for (String[] r : currentRows) b.append(csv(currentHost)).append(',').append(r[0]).append(',').append(csv(r[1])).append(',').append(r[2]).append('\n');
