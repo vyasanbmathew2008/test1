@@ -1,8 +1,7 @@
-.env
-.venv/
-__pycache__/
-*.py[cod]
-*.db
-uploads/
-generated/
+target/
+*.class
+.idea/
+.vscode/
+*.iml
 .DS_Store
+*.log
