@@ -140,7 +140,15 @@ public class MainActivity extends Activity {
         });
     }
 
-    private int countCurrentRows() { synchronized (currentRows) { return currentRows.size(); } }\n\n    private String makeCsv() {
+    private int countOpenRows() {
+        int count = 0;
+        synchronized (currentRows) {
+            for (String[] row : currentRows) if ("OPEN".equals(row[2])) count++;
+        }
+        return count;
+    }
+
+    private String makeCsv() {
         StringBuilder b = new StringBuilder("host,port,service,state\n");
         synchronized (currentRows) {
             for (String[] r : currentRows) b.append(csv(currentHost)).append(',').append(r[0]).append(',').append(csv(r[1])).append(',').append(r[2]).append('\n');
