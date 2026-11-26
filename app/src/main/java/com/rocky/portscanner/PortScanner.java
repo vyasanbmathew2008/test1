@@ -80,6 +80,10 @@ final class PortScanner {
             }
             int done = 0;
             for (int i = 0; i < ports.size(); i++) {
+                if (Thread.currentThread().isInterrupted()) {
+                    for (Future<Boolean> future : futures) future.cancel(true);
+                    throw new InterruptedException("Scan cancelled");
+                }
                 boolean open;
                 try { open = futures.get(i).get(); }
                 catch (Exception e) { open = false; }
